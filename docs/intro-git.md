@@ -63,30 +63,6 @@ Cool! Let's disect that! Your command had a few parts.
 
 Echo is one of the simplest programs on your computer. To find out what it does, we can use another program, `man`, short for `manual`. To learn about `echo`, we can read the manual for it. Type `man echo`, and press enter.
 
-{% spoiler "Reveal" %}
-You should get something like this:
-
-```
-ECHO(1)                            fish-shell                            ECHO(1)
-
-
-
-NAME
-       echo - display a line of text
-
-SYNOPSIS
-
-          echo [OPTIONS] [STRING]
-
-DESCRIPTION
-       echo displays a string of text.
-
-       The following options are available:
-
-       • -n, Do not output a newline
-```
-{% endspoiler %}
-
-You can use the up and down arrow keys to scroll the document to learn about `echo`.
+You should get a page that teaches you how to use `echo`. You can use the up and down arrow keys to scroll the document to learn about `echo`.
 
 Echo takes in what ever you give it, and just repeats it back to you, similar to the echo if you were to stand in a cave and yell.
