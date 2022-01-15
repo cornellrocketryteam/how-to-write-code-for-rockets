@@ -1,0 +1,8 @@
+title: How to write code for rockets.
+
+remote_theme: cs50/jekyll-theme-cs50
+cs50:
+  title: How to write code for rockets.
+  description: How to write code for rockets.
+  locale: en-US
+  tz: America/New_York
