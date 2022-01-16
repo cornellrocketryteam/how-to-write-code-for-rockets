@@ -6,3 +6,7 @@ cs50:
   description: How to write code for rockets.
   locale: en-US
   tz: America/New_York
+  alert: warning dismissible
+
+plugins:
+  - jemoji

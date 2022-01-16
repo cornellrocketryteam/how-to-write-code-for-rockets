@@ -15,7 +15,7 @@ Additionally, some of the resources here are helpful to people not on the team. 
 
 ### What should go here vs. Confluence?
 Anything that is specifically about the design of your system or the greater rocket should be on [Confluence](https://confluence.cornell.edu/display/crt). Information about how to write code more generally should go here. For example:
-- A block diagram for your system should go on Confluence
-- Implementation details for your system should go on Confluence
-- Documentation practices should go here
-- Documentation for your system should go on Confluence
+* A block diagram for your system should go on Confluence
+* Implementation details for your system should go on Confluence
+* Documentation practices should go here
+* Documentation for your system should go on Confluence
