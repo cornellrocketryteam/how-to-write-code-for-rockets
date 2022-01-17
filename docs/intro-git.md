@@ -17,6 +17,7 @@ Git was created by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds
 {% include lesson-header.md prereqs=prereqs goals=goals seealso=seealso %}
 
 ## An introduction to the command line
+{% include note.html content="If you already know how to use the command line, you can skip to [get git going](#get-git-going)."%}
 Git is a program, the same way that Firefox or Word is, but there is a catch. Firefox and Word both provide graphical user interfaces (GUIs). We have a window where we can click buttons or type into text boxes. Git is run from the command line, and provides only a text interface. You type a text command to git, and it gives you back text.
 
 To use a program like this, you need to learn how to control your computer with text.
@@ -238,7 +239,62 @@ williambarkoff@willsmacbookpro intro-git % ls
 hello.txt
 ```
 
-Let's write something into our file. In most cases, one would do this with the text editor of their choice (I like [Visual Studio Code](https://code.visualstudio.com/)), but another
+### Output redirection
+
+Let's write something into our file. In most cases, one would do this with the text editor of their choice (I like [Visual Studio Code](https://code.visualstudio.com/)), but we'll use another method.
+
+Let's write the text `Hello, world` into our file `hello.txt`. We can use a command that we already know, `echo`, to do this. Recall that `echo` just spits out whatever you give it, it echos it. We can use a tool called _output redirection_ to redirect the output of `echo` into our file.
+
+To understand output redirection, we need to understand how command output actually works. There are three standard _streams_, or input/output channels that each command uses.
+
+* `stdin` is the standard input. A program can read input from here, seperately from its parameters (not all programs take inputs through `stdin`).
+* `stdout` is the standard output. This is generally where programs put their outputs, with the exception of error messages (of course, some programs don't have outputs, and others write to files and such)
+* `stderr` is the standard error. It is where programs generally output error messages (once again, some programs use `stdout` and others write to files and things).
+
+We can use output redirection to redirect `stdout` or `stderr` to a file, or input redirection to redirect a file to `stdin`. Let's write `Hello, world` to our file `hello.txt`.
+
+```sh
+echo "Hello, world" > hello.txt
+```
+
+The single greater than sign here (`>`) means to execute the command to the left of it, then once that happens, take the result of that command, and overwrite the file `hello.txt` with the result of it.
+
+This is helpful if we're running a program that creates a lot of diagnostic output and we want to search it. Let's take at the contents of `hello.txt` now.
+
+To do this, we can use another command, `cat`, short for "concatenate." It allows us to print files to `stdout`. It's called "concatenate" because if you give it multiple files, it concatenates them, but it's 
+also useful for displaying files.
+
+To show the contents of `hello.txt`, type:
+
+```sh
+cat hello.txt
+```
+
+{% spoiler "Reveal" %}
+```sh
+williambarkoff@willsmacbookpro intro-git % cat hello.txt
+Hello, world
+```
+{% endspoiler %}
+
+We can also use a few other redirections:
+* `>` redirects `stdout` to a specified file, overwriting it.
+* `>>` redirects `stdout` to a specified file, appending to it.
+* `2>` redirects `stderr` to a specified file, overwriting it.
+* `2>>` redirects `stderr` to a specified file, appending to it.
+
+We won't go more in depth into these, but I'd suggest playing around with them. There's also a tool called `nano` which allows you to interactively edit files. We also won't go into that here, but you can look up how to use it online.
+
+Let's clean up by deleting our `hello.txt` file:
+```sh
+rm hello.txt
+```
+
+### Killing things
+Sometimes, a program will misbehave and won't stop running, or you'll want to stop it for some other reason. You can politley ask a program to stop by sending it a `SIGINT`, short for "signal interrupt," by pressing <kbd>ctrl</kbd> + <kbd>C</kbd>. Most programs will respect `SIGINT`, but if you really need to kill a program, you can suspend it by pressing <kbd>ctrl</kbd> + <kbd>Z</kbd>, then using the `kill` command to kill it.
+
+## Get git going
+{% include note.html content="If you skipped the past section, you can catch up by creating a directory called `intro-git` and `cd`ing into it."%}
 
 ## Summary
 
@@ -256,4 +312,12 @@ Let's write something into our file. In most cases, one would do this with the t
 	* `pwd` prints the working directory
 	* `rm` deletes a file, and `rmdir` deletes a directory
 	* `touch` creates a file
-	* 
+	* `cat` concatenates files, but is mainly used to print files.
+* And about input and output redirection
+	* `>` redirects `stdout` to a specified file, overwriting it.
+	* `>>` redirects `stdout` to a specified file, appending to it.
+	* `2>` redirects `stderr` to a specified file, overwriting it.
+	* `2>>` redirects `stderr` to a specified file, appending to it.
+* We also learned about how to stop programs
+	* <kbd>ctrl</kbd> + <kbd>C</kbd> to politley ask a program to stop
+	* <kbd>ctrl</kbd> + <kbd>Z</kbd> suspends a process, which you can then use `kill` to kill. 
