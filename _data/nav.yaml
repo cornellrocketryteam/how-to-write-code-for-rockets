@@ -1,0 +1,20 @@
+- title: Introduction
+  subfolderitems:
+    - page: How to write code for rockets
+      url: /
+- title: Development Tools
+  subfolderitems:
+    - page: Introduction to the command line
+      url: /docs/intro-cli.html
+    - page: Getting started with Git
+      url: /docs/intro-git.html
+    - page: Developing for the RP2040
+      url: /docs/intro-rp2040.html
+# - title: Legal
+#   subfolderitems:
+#     - page: License
+#       url: /legal/license.html
+#     - page: Attributions
+#       url: /legal/attributions.html
+#     - page: Privacy
+#       url: /legal/privacy.html

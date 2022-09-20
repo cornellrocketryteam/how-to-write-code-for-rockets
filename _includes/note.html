@@ -1,3 +1,3 @@
-<div class="alert alert-{{include.style | default: "info"}}" role="alert">
+<div class="notification is-{{include.style | default: "info"}} is-light" role="alert">
 	{{include.content | markdownify | smartify}}
 </div>
